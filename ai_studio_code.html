@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لا بوتيه | عروض رمضان الملكية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;700;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --gold: #c5a059;
+            --gold-light: #f9f1d0;
+            --royal-purple: #7a2a82;
+            --deep-black: #050505;
+            --ramadan-green: #1a4d2e;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--deep-black);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .video-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2;
+            object-fit: cover;
+            opacity: 0.2;
+            filter: saturate(0.5) brightness(0.6);
+        }
+
+        .overlay-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.05) 0%, transparent 80%),
+                        linear-gradient(to bottom, rgba(5, 5, 5, 0.9), transparent, rgba(5, 5, 5, 1));
+            pointer-events: none;
+        }
+
+        .gold-shimmer {
+            background: linear-gradient(90deg, #c5a059, #f9f1d0, #c5a059);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer { to { background-position: 200% center; } }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(197, 160, 89, 0.1);
+            border-radius: 32px;
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--gold);
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(197, 160, 89, 0.2);
+        }
+
+        .ramadan-badge {
+            background: linear-gradient(45deg, var(--gold), #8e6d2f);
+            color: black;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 900;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            animation: pulse-border 2s infinite;
+        }
+
+        @keyframes pulse-border {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(197, 160, 89, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), #8e6d2f);
+            color: #000;
+            font-weight: 900;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-ramadan {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            transition: all 0.3s;
+        }
+        .btn-ramadan:hover {
+            background: var(--gold);
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop playsinline class="video-bg">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-dentist-checking-teeth-of-a-patient-14066-large.mp4" type="video/mp4">
+    </video>
+    <div class="overlay-glow"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center bg-black/40 backdrop-blur-xl border-b border-white/5">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center border-2 border-[var(--gold)]">
+                <img src="https://img.icons8.com/color/96/tooth.png" alt="Logo" class="w-8 h-8">
+            </div>
+            <div class="flex flex-col text-right">
+                <span class="text-2xl font-black gold-shimmer uppercase tracking-tighter">LA BEAUTÉ</span>
+                <span class="text-[8px] text-gray-400 tracking-[0.4em] uppercase">Dental Excellence</span>
+            </div>
+        </div>
+        <div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest">
+            <a href="#ramadan" class="text-[var(--gold)] hover:brightness-125 transition">عروض رمضان</a>
+            <a href="#ai-lab" class="hover:text-[var(--gold)] transition">AI المختبر</a>
+            <a href="#booking" class="hover:text-[var(--gold)] transition">حجز المواعيد</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="hidden md:block text-[10px] text-gray-500 italic">الرياض، حي العليا</span>
+            <i data-lucide="moon" class="w-5 h-5 text-[var(--gold)]"></i>
+        </div>
+    </nav>
+
+    <main class="relative z-10 pt-32 pb-20 px-6 max-w-7xl mx-auto">
+        
+        <!-- Hero Section -->
+        <section class="text-center mb-20 flex flex-col items-center">
+            <div class="ramadan-badge mb-6">✨ مبارك عليكم الشهر ✨</div>
+            <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
+                ليالي <span class="gold-shimmer italic font-serif">رمضان</span><br>تكتمل بابتسامتك
+            </h1>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+                في "لا بوتيه"، جعلنا شهر الخير فرصة لتبهر الجميع بابتسامة ناصعة. خصومات حصرية وتجارب علاجية مدعومة بالذكاء الاصطناعي.
+            </p>
+        </section>
+
+        <!-- Ramadan Special Offers -->
+        <section id="ramadan" class="mb-32">
+            <div class="flex flex-col items-center mb-16">
+                <h2 class="text-4xl font-black text-center mb-4">قائمة <span class="text-[var(--gold)]">عروض الخير</span></h2>
+                <div class="w-24 h-1 bg-[var(--gold)] rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Offer 1 -->
+                <div class="glass-card p-8 flex flex-col items-center text-center relative overflow-hidden group">
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-[var(--gold)] opacity-5 rounded-full"></div>
+                    <i data-lucide="sparkles" class="w-12 h-12 text-[var(--gold)] mb-6 group-hover:rotate-12 transition"></i>
+                    <h3 class="text-2xl font-bold mb-4">باقة إشراقة الإفطار</h3>
+                    <p class="text-sm text-gray-500 mb-8 leading-relaxed">تنظيف أسنان ملكي + تلميع + تبييض ليزري لإزالة تصبغات القهوة الرمضانية.</p>
+                    <div class="mb-8">
+                        <span class="text-gray-500 line-through block text-sm">1200 ريال</span>
+                        <span class="text-4xl font-black text-[var(--gold)]">555 ريال</span>
+                    </div>
+                    <button onclick="applyOffer('تبييض ملكي')" class="btn-primary w-full py-4 rounded-2xl">احجز العرض الآن</button>
+                </div>
+
+                <!-- Offer 2 (Highlight) -->
+                <div class="glass-card p-8 flex flex-col items-center text-center border-2 border-[var(--gold)] relative scale-105 shadow-2xl shadow-gold/10">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 bg-[var(--gold)] text-black px-4 py-1 text-[10px] font-black rounded-b-xl uppercase tracking-widest">الأكثر طلباً</div>
+                    <i data-lucide="star" class="w-12 h-12 text-[var(--gold)] mb-6 animate-pulse"></i>
+                    <h3 class="text-2xl font-bold mb-4">ابتسامة العيد (AI)</h3>
+                    <p class="text-sm text-gray-500 mb-8 leading-relaxed">تصميم كامل للابتسامة (فينير/لومينير) بتقنية 3D الرقمية بخصم حصري.</p>
+                    <div class="mb-8">
+                        <span class="text-4xl font-black text-[var(--gold)]">30% خصم</span>
+                        <p class="text-[10px] text-gray-400 mt-2 italic">* متاح الدفع عبر تمارا وتابي</p>
+                    </div>
+                    <button onclick="applyOffer('ابتسامة هوليوود')" class="btn-primary w-full py-4 rounded-2xl shadow-lg shadow-gold/20">صمم ابتسامتك</button>
+                </div>
+
+                <!-- Offer 3 -->
+                <div class="glass-card p-8 flex flex-col items-center text-center relative overflow-hidden group">
+                    <i data-lucide="users" class="w-12 h-12 text-[var(--gold)] mb-6 group-hover:scale-110 transition"></i>
+                    <h3 class="text-2xl font-bold mb-4">الفحص العائلي</h3>
+                    <p class="text-sm text-gray-500 mb-8 leading-relaxed">استشارة شاملة لجميع أفراد العائلة مجاناً عند حجز أي جلسة علاجية.</p>
+                    <div class="mb-8">
+                        <span class="text-4xl font-black text-[var(--gold)]">مجاناً</span>
+                        <p class="text-xs text-gray-400 mt-2 italic">طوال شهر رمضان</p>
+                    </div>
+                    <button onclick="applyOffer('استشارة ذكية')" class="btn-ramadan w-full py-4 rounded-2xl">اطلب موعد عائلي</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Lab Section (Existing) -->
+        <section id="ai-lab" class="mb-32">
+            <div class="flex flex-col items-center mb-16 text-center">
+                <div class="w-20 h-1 bg-[var(--gold)] mb-6 rounded-full"></div>
+                <h2 class="text-4xl font-black gold-shimmer italic mb-4 uppercase">مختبر الذكاء الاصطناعي ✨</h2>
+                <p class="text-gray-500">جرب تقنياتنا العالمية الحصرية قبل زيارتنا</p>
+            </div>
+            
+            <!-- (المحتوى الخاص بالـ AI كما هو في كودك الأصلي) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                 <!-- Visual Analysis Card -->
+                 <div class="glass-card p-10 relative overflow-hidden group">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="p-4 bg-[var(--gold)]/10 rounded-2xl border border-[var(--gold)]/20">
+                            <i data-lucide="scan-face" class="w-10 h-10 text-[var(--gold)]"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-gray-500 tracking-widest uppercase italic">Gemini Vision AI</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 italic">حلل ابتسامتك الرمضانية</h3>
+                    <p class="text-sm text-gray-400 mb-8">ارفع صورتك الآن وسيقوم Gemini بتحليل احتياجاتك التجميلية فوراً.</p>
+                    <div class="mb-6">
+                        <label for="smileUpload" class="w-full flex flex-col items-center justify-center p-8 border-2 border-dashed border-white/10 rounded-3xl cursor-pointer hover:border-[var(--gold)] transition bg-black/20">
+                            <i data-lucide="camera" class="w-12 h-12 text-gray-600 mb-4"></i>
+                            <span class="text-xs text-gray-500">ارفع صورة أسنانك هنا</span>
+                        </label>
+                        <input type="file" id="smileUpload" class="hidden">
+                    </div>
+                    <button class="w-full btn-primary py-4 rounded-xl">بدء التحليل الذكي</button>
+                </div>
+
+                <!-- AI Consultant -->
+                <div class="glass-card p-10 relative overflow-hidden group">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="p-4 bg-blue-500/10 rounded-2xl border border-blue-500/20">
+                            <i data-lucide="message-square" class="w-10 h-10 text-blue-400"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-gray-500 tracking-widest uppercase">Live Consultant</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 italic">اسأل المستشار الذكي</h3>
+                    <div class="space-y-4 mb-6 h-40 overflow-y-auto p-4 bg-black/20 rounded-xl text-xs text-gray-400">
+                        <p class="text-blue-400">Gemini: مرحباً بك في لا بوتيه.. كيف أساعدك اليوم بخصوص أسنانك؟</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <input type="text" placeholder="مثلاً: ما هي مواعيد العيادة في رمضان؟" class="flex-1 bg-black/40 border border-white/10 p-4 rounded-xl text-sm outline-none focus:border-blue-400 transition">
+                        <button class="p-4 bg-blue-500 rounded-xl"><i data-lucide="send" class="w-5 h-5"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section (Existing but enhanced for Ramadan) -->
+        <section id="booking" class="max-w-4xl mx-auto">
+            <div class="glass-card p-12 text-center relative overflow-hidden border-2 border-[var(--gold)]/20 shadow-[0_0_50px_rgba(197,160,89,0.1)]">
+                <div id="bookingFormArea">
+                    <div class="flex justify-center mb-6">
+                        <i data-lucide="calendar-check" class="w-12 h-12 text-[var(--gold)]"></i>
+                    </div>
+                    <h2 class="text-4xl font-black mb-4">احجز مكانك في <span class="gold-shimmer italic">قائمة الانتظار</span></h2>
+                    <p class="text-gray-400 mb-10">المواعيد في رمضان محدودة جداً.. احجز موعدك المسائي الآن (بعد التراويح).</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <input id="patientName" type="text" placeholder="الاسم الكامل" class="bg-white/5 border border-white/10 p-5 rounded-2xl outline-none focus:border-[var(--gold)] transition">
+                        <input id="patientPhone" type="tel" placeholder="رقم الجوال" class="bg-white/5 border border-white/10 p-5 rounded-2xl outline-none focus:border-[var(--gold)] transition text-right">
+                        <select id="patientService" class="bg-white/5 border border-white/10 p-5 rounded-2xl outline-none text-[var(--gold)]">
+                            <option value="تبييض ملكي">تبييض ملكي (عرض رمضان)</option>
+                            <option value="ابتسامة هوليوود">ابتسامة هوليوود (30% خصم)</option>
+                            <option value="زراعة أسنان">زراعة أسنان</option>
+                            <option value="استشارة ذكية">استشارة عائلية مجانية</option>
+                        </select>
+                        <input id="patientDate" type="datetime-local" class="bg-white/5 border border-white/10 p-5 rounded-2xl text-gray-400 outline-none focus:border-[var(--gold)]">
+                    </div>
+                    
+                    <button onclick="processBooking()" class="btn-primary w-full py-6 rounded-2xl text-2xl flex items-center justify-center gap-4 group">
+                        <span>تأكيد الحجز الرمضاني</span>
+                        <i data-lucide="arrow-left" class="w-6 h-6 group-hover:-translate-x-2 transition"></i>
+                    </button>
+                </div>
+
+                <!-- Confirmation Success Area -->
+                <div id="confirmationArea" class="hidden flex-col items-center">
+                    <div class="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-6 border-2 border-green-500">
+                        <i data-lucide="check" class="w-10 h-10 text-green-500"></i>
+                    </div>
+                    <h2 class="text-3xl font-black mb-2 gold-shimmer">تم تسجيل طلبك بنجاح!</h2>
+                    <p class="text-gray-400 mb-8 text-sm italic text-center">سيقوم منسق عيادة "لا بوتيه" بالتواصل معك عبر الواتساب لتأكيد الساعة النهائية.</p>
+                    <button onclick="sendToWhatsApp()" class="btn-primary w-full max-w-lg py-5 rounded-2xl text-xl flex items-center justify-center gap-3">
+                        تواصل فوراً عبر واتساب 
+                        <i data-lucide="send" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-20 bg-black border-t border-white/5 text-center relative z-10">
+        <div class="text-3xl font-black gold-shimmer mb-4 uppercase tracking-[0.2em]">LA BEAUTÉ</div>
+        <p class="text-gray-600 text-[10px] uppercase tracking-[0.5em] mb-10">Riyadh Luxury Clinic • Al Olaya District</p>
+        <p class="text-[10px] text-gray-700">© 2025 La Beauté Dental. رمضان مبارك</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // ربط العروض بنموذج الحجز
+        function applyOffer(serviceName) {
+            document.getElementById('patientService').value = serviceName;
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+            // تأثير بصري بسيط
+            document.getElementById('patientService').classList.add('animate-pulse');
+            setTimeout(() => document.getElementById('patientService').classList.remove('animate-pulse'), 2000);
+        }
+
+        async function processBooking() {
+            const name = document.getElementById('patientName').value;
+            const phone = document.getElementById('patientPhone').value;
+            const service = document.getElementById('patientService').value;
+            
+            if (!name || !phone) return alert("فضلاً كمل بياناتك لخدمتك بشكل أفضل.");
+
+            // إظهار منطقة التأكيد
+            document.getElementById('bookingFormArea').classList.add('hidden');
+            document.getElementById('confirmationArea').classList.remove('hidden');
+            document.getElementById('confirmationArea').classList.add('flex');
+        }
+
+        function sendToWhatsApp() {
+            const name = document.getElementById('patientName').value;
+            const service = document.getElementById('patientService').value;
+            const clinicNumber = "966511926526"; 
+            const msg = `يا هلا عيادة لا بوتيه، معكم ${name}. حاب أستفيد من عرض رمضان الخاص بـ (${service}). متى أقرب موعد متاح بالمساء؟`;
+            window.location.href = `https://wa.me/${clinicNumber}?text=${encodeURIComponent(msg)}`;
+        }
+    </script>
+</body>
+</html>
